@@ -233,3 +233,9 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - toc:
       permalink: "#"
+
+extra_css:
+     - 'assets/stylesheets/extra.css'
+     - "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+extra_javascript:
+     - 'assets/stylesheets/extra.js'

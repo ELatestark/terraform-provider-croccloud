@@ -1,0 +1,30 @@
+.note-block-yellow {
+    border: 1px solid #ffc107;
+    background-color: #fff8e1;
+}
+
+.note-block-blue {
+    border: 1px solid #007acc;
+    background-color: #f0f8ff;
+}
+
+.note-block-red {
+    border: 1px solid #d9534f;
+    background-color: #f8d7da;
+}
+
+.note-block {
+    padding: 1em;
+    border-radius: 5px;
+    margin: 1em 0;
+}
+
+code {
+    color: #d9534f !important;
+    background-color: #eaeef1;
+    border: 1px solid #d1d5da;
+    border-radius: 3px;
+    padding: 0.2em 0.4em;
+    font-size: 85%;
+    font-family: monospace;
+}
