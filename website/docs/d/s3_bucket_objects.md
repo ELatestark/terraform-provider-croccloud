@@ -8,7 +8,7 @@ description: |-
 
 # Data Source: aws_s3_bucket_objects
 
-~> **NOTE:** The `aws_s3_bucket_objects` data source is DEPRECATED and will be removed in a future version! Use [`aws_s3_objects`](s3_objects.html.markdown) instead, where new features and fixes will be added.
+~> **NOTE:** The `aws_s3_bucket_objects` data source is DEPRECATED and will be removed in a future version! Use [`aws_s3_objects`](s3_objects.md) instead, where new features and fixes will be added.
 
 ~> **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect Terraform's performance.
 

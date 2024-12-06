@@ -103,7 +103,7 @@ The following arguments are supported:
 * `host_id` - (Optional) The ID of the dedicated host that the instance will be assigned to.
 * `instance_initiated_shutdown_behavior` - (Optional) Shutdown behavior for the instance. Valid values are `stop`, `terminate`.
 * `instance_type` - (Optional) The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
-* `key_name` - (Optional) Key name of the key pair to use for the instance; which can be managed using [the `aws_key_pair` resource](key_pair.html.markdown).
+* `key_name` - (Optional) Key name of the key pair to use for the instance; which can be managed using [the `aws_key_pair` resource](key_pair.md).
 * `launch_template` - (Optional) Specifies a launch template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
   See [Launch Template Specification](#launch-template-specification) below for more details.
 * `monitoring` - (Optional) If `true`, the launched EC2 instance will have detailed monitoring enabled.
@@ -124,7 +124,7 @@ The following arguments are supported:
 * `user_data_replace_on_change` - (Optional) When used in combination with `user_data` or `user_data_base64` will trigger a destroy and recreate when set to `true`. Defaults to `false`.
 * `volume_tags` - (Optional) A map of tags to assign, at instance-creation time, to root and EBS volumes.
 
-~> **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `aws_instance` configuration, such as using `tags` in an [`aws_ebs_volume`](ebs_volume.html.markdown) resource attached via [`aws_volume_attachment`](volume_attachment.html.markdown). Doing so will result in resource cycling and inconsistent behavior.
+~> **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `aws_instance` configuration, such as using `tags` in an [`aws_ebs_volume`](ebs_volume.md) resource attached via [`aws_volume_attachment`](volume_attachment.md). Doing so will result in resource cycling and inconsistent behavior.
 
 * `vpc_security_group_ids` - (Optional, Conflicts with `network_interface`) A list of security group IDs to associate with.
 
@@ -151,7 +151,7 @@ Each `ebs_block_device` block supports the following:
 * `volume_type` - (Optional) Type of volume. Valid values are `st2`, `gp2`, `io2`.
 
 ~> **NOTE:** Currently, changes to the `ebs_block_device` configuration of _existing_ resources cannot be automatically detected by Terraform.
-To manage changes and attachments of an EBS block to an instance, use the [`aws_ebs_volume`](ebs_volume.html.markdown) and [`aws_volume_attachment`](volume_attachment.html.markdown) resources instead.
+To manage changes and attachments of an EBS block to an instance, use the [`aws_ebs_volume`](ebs_volume.md) and [`aws_volume_attachment`](volume_attachment.md) resources instead.
 If you use `ebs_block_device` on an `aws_instance`, Terraform will assume management over the full set of non-root EBS block devices for the instance, treating additional block devices as drift.
 For this reason, `ebs_block_device` cannot be mixed with external `aws_ebs_volume` and `aws_volume_attachment` resources for a given instance.
 
@@ -165,7 +165,7 @@ Each `ephemeral_block_device` block supports the following:
 
 Each of the `network_interface` blocks attach a network interface to an EC2 instance during boot time.
 However, because the network interface is attached at boot-time, replacing/modifying the network interface **WILL** trigger a recreation of the EC2 Instance.
-If you should need at any point to detach/modify/re-attach a network interface to the instance, use the [`aws_network_interface`](network_interface.html.markdown) or [`aws_network_interface_attachment`](network_interface_attachment.html.markdown) resources instead.
+If you should need at any point to detach/modify/re-attach a network interface to the instance, use the [`aws_network_interface`](network_interface.md) or [`aws_network_interface_attachment`](network_interface_attachment.md) resources instead.
 
 The `network_interface` configuration block _does_, however, allow users to supply their own network interface to be used as the default network interface on an EC2 instance, attached at `eth0`.
 
@@ -197,7 +197,7 @@ In addition to all arguments above, the following attributes are exported:
 * `primary_network_interface_id` - The ID of the instance's primary network interface.
 * `private_dns` - The private DNS name assigned to the instance. For EC2-VPC, this is only available if you've enabled DNS hostnames for your VPC.
 * `public_dns` - The public DNS name assigned to the instance. For EC2-VPC, this is only available if you've enabled DNS hostnames for your VPC.
-* `public_ip` - The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an [`aws_eip`](eip.html.markdown) with your instance, you should refer to the EIP's address directly and not use `public_ip` as this field will change after the EIP is attached.
+* `public_ip` - The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an [`aws_eip`](eip.md) with your instance, you should refer to the EIP's address directly and not use `public_ip` as this field will change after the EIP is attached.
 * `security_groups` - The list of security group names associated with the instance.
 * `tags_all` - A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block][default-tags].
 
