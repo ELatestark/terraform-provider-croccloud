@@ -41,6 +41,7 @@ jobs:
 
         - name: Run acceptance tests
           env:
+            access_key: ${{ vars.aws_access_key_id }}
             AWS_ACCESS_KEY_ID: ${{ vars.aws_access_key_id }}
             AWS_SECRET_ACCESS_KEY: ${{ secrets.secret_access_key }}
             EC2_URL: ${{ secrets.ec2_url }}
