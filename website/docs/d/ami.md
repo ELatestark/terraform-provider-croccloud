@@ -48,7 +48,7 @@ For more information about filtering, see the [EC2 API documentation][describe-i
 ~> **NOTE:** If more or less than a single match is returned by the search,
 Terraform will fail. Ensure that your search is specific enough to return
 a single image ID only, or use `most_recent` to choose the most recent one. If
-you want to match multiple images, use the [`aws_ami_ids`](ami_ids.html.markdown) data source instead.
+you want to match multiple images, use the [`aws_ami_ids`](ami_ids.md) data source instead.
 
 ## Attributes Reference
 

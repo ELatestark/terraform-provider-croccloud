@@ -1,0 +1,241 @@
+site_name: Terraform Rockitcloud Provider - Contributor Guide
+site_description: 'Contributor documentation and reference for the
+                   Terraform Rockitcloud Provider'
+use_directory_urls: false
+copyright: Rockit Cloud
+repo_name: hashicorp/terraform-provider-rockitcloud
+repo_url: https://github.com/C2Devel/terraform-provider-rockitcloud
+edit_uri: "https://github.com/C2Devel/terraform-provider-rockitcloud/tree/develop/website/docs"
+nav:
+  - Welcome: ./index.md             
+  - Autoscaling:
+    - DataSources:
+      - autoscaling_group: d/autoscaling_group.md
+    - Resources:
+      - autoscaling_policy: r/autoscaling_policy.md
+  - Backup:
+    - DataSources:
+      - backup_plan: d/backup_plan.md
+      - backup_selection: d/backup_selection.md
+      - backup_vault: d/backup_vault.md
+    - Resources:
+      - backup_plan: r/backup_plan.md
+      - backup_selection: r/backup_selection.md
+      - backup_vault_default: r/backup_vault_default.md
+  - CloudWatch:
+    - Resources:
+      - cloudwatch_metric_alarm: r/cloudwatch_metric_alarm.md
+  - EBS (EC2):
+    - DataSources:
+      - ebs_snapshot: d/ebs_snapshot.md
+      - ebs_snapshot_ids: d/ebs_snapshot_ids.md
+      - ebs_volume: d/ebs_volume.md
+      - ebs_volumes: d/ebs_volumes.md
+    - Resources:
+      - ebs_snapshot: r/ebs_snapshot.md
+      - ebs_snapshot_import: r/ebs_snapshot_import.md
+      - ebs_volume: r/ebs_volume.md
+      - snapshot_create_volume_permission: r/snapshot_create_volume_permission.md
+      - volume_attachment: r/volume_attachment.md
+  - EC2 (Elastic Compute Cloud):
+    - DataSources:
+      - ami: d/ami.md
+      - ami_ids: d/ami_ids.md
+      - availability_zones: d/availability_zones.md
+      - availability_zone: d/availability_zone.md
+      - ec2_host: d/ec2_host.md
+      - eip: d/eip.md
+      - eips: d/eips.md
+      - instance: d/instance.md
+      - instances: d/instances.md
+      - key_pair: d/key_pair.md
+      - launch_template: d/launch_template.md
+    - Resources:
+      - ami: r/ami.md
+      - ami_from_instance: r/ami_from_instance.md
+      - ami_launch_permission: r/ami_launch_permission.md
+      - ec2_tag: r/ec2_tag.md
+      - eip: r/eip.md
+      - eip_association: r/eip_association.md
+      - instance: r/instance.md
+      - key_pair: r/key_pair.md
+      - launch_template: r/launch_template.md
+      - placement_group: r/placement_group.md
+  - EKS (Elastic Kubernetes):
+    - DataSources:
+      - eks_cluster: d/eks_cluster.md
+      - eks_cluster_auth: d/eks_cluster_auth.md
+      - eks_clusters: d/eks_clusters.md
+      - eks_node_group: d/eks_node_group.md
+      - eks_node_groups: d/eks_node_groups.md
+    - Resources:
+      - eks_cluster: r/eks_cluster.md
+      - eks_node_group: r/eks_node_group.md
+  - ELB (Elastic Load Balancing):
+    - DataSources:
+      - lb: d/lb.md
+      - lb_listener: d/lb_listener.md
+      - lb_target_group: d/lb_target_group.md
+    - Resources:
+      - lb: r/lb.md
+      - lb_listener: r/lb_listener.md
+      - lb_target_group: r/lb_target_group.md
+      - lb_target_group_attachment: r/lb_target_group_attachment.md
+  - IAM (Identity & Access Management):
+    - DataSources:
+      - iam_group: d/iam_group.md
+      - iam_policy: d/iam_policy.md
+      - iam_project: d/iam_project.md
+      - iam_user: d/iam_user.md
+      - iam_users: d/iam_users.md
+    - Resources:
+      - iam_group: r/iam_group.md
+      - iam_group_membership: r/iam_group_membership.md
+      - iam_group_policy_attachment: r/iam_group_policy_attachment.markdown
+      - iam_policy: r/iam_policy.md
+      - iam_project: r/iam_project.md
+      - iam_user: r/iam_user.md
+      - iam_user_group_membership: r/iam_user_group_membership.md
+      - iam_user_policy_attachment: r/iam_user_policy_attachment.markdown
+  - PaaS:
+    - DataSources:
+      - paas_backup: d/paas_backup.md
+      - paas_backup_users: d/paas_backup_users.md
+      - paas_backups: d/paas_backups.md
+      - paas_service: d/paas_service.md
+    - Resources:
+      - paas_backup: r/paas_backup.md
+      - paas_service: r/paas_service.md
+  - Route 53:
+    - DataSources:
+      - route53_zone: d/route53_zone.md
+    - Resources:
+      - route53_record: r/route53_record.md
+      - route53_zone: r/route53_zone.md
+  - S3 (Simple Storage):
+    - DataSources:
+      - canonical_user_id: d/canonical_user_id.md
+      - s3_bucket: d/s3_bucket.md
+      - s3_bucket_object: d/s3_bucket_object.md
+      - s3_bucket_objects: d/s3_bucket_objects.md
+      - s3_bucket_policy: d/s3_bucket_policy.md
+      - s3_object: d/s3_object.md
+      - s3_objects: d/s3_objects.md
+    - Resources:
+      - s3_bucket: r/s3_bucket.md
+      - s3_bucket_acl: r/s3_bucket_acl.md
+      - s3_bucket_cors_configuration: r/s3_bucket_cors_configuration.md
+      - s3_bucket_lifecycle_configuration: r/s3_bucket_lifecycle_configuration.md
+      - s3_bucket_object: r/s3_bucket_object.md
+      - s3_bucket_policy: r/s3_bucket_policy.md
+      - s3_bucket_request_payment_configuration: r/s3_bucket_request_payment_configuration.md
+      - s3_bucket_server_side_encryption_configuration: r/s3_bucket_server_side_encryption_configuration.md
+      - s3_bucket_versioning: r/s3_bucket_versioning.md
+      - s3_bucket_website_configuration: r/s3_bucket_website_configuration.md
+      - s3_object: r/s3_object.md
+      - s3_object_copy: r/s3_object_copy.md
+  - Transit Gateway:
+    - DataSources:
+      - ec2_transit_gateway: d/ec2_transit_gateway.md
+      - ec2_transit_gateway_route_table: d/ec2_transit_gateway_route_table.md
+      - ec2_transit_gateway_route_tables: d/ec2_transit_gateway_route_tables.md
+      - ec2_transit_gateway_vpc_attachment: d/ec2_transit_gateway_vpc_attachment.md
+      - ec2_transit_gateway_vpc_attachments: d/ec2_transit_gateway_vpc_attachments.md
+    - Resources:
+      - ec2_transit_gateway: r/ec2_transit_gateway.md
+      - ec2_transit_gateway_route: r/ec2_transit_gateway_route.md
+      - ec2_transit_gateway_route_table: r/ec2_transit_gateway_route_table.md
+      - ec2_transit_gateway_route_table_association: r/ec2_transit_gateway_route_table_association.md
+      - ec2_transit_gateway_route_table_propagation: r/ec2_transit_gateway_route_table_propagation.md
+      - ec2_transit_gateway_vpc_attachment: r/ec2_transit_gateway_vpc_attachment.md
+  - VPC (Virtul Private Cloud):
+    - DataSources:
+      - network_acls: d/network_acls.md
+      - network_interface: d/network_interface.md
+      - network_interfaces: d/network_interfaces.md
+      - route: d/route.md
+      - route_table: d/route_table.md
+      - route_tables: d/route_tables.md
+      - security_group: d/security_group.md
+      - security_groups: d/security_groups.md
+      - subnet: d/subnet.md
+      - subnet_ids: d/subnet_ids.md
+      - subnets: d/subnets.md
+      - vpc: d/vpc.md
+      - vpc_dhcp_options: d/vpc_dhcp_options.md
+      - vpcs: d/vpcs.md
+    - Resources:
+      - default_network_acl: r/default_network_acl.md
+      - default_route_table: r/default_route_table.md
+      - default_security_group: r/default_security_group.md
+      - default_vpc: r/default_vpc.md
+      - default_vpc_dhcp_options: r/default_vpc_dhcp_options.md
+      - main_route_table_association: r/main_route_table_association.md
+      - network_acl: r/network_acl.md
+      - network_acl_association: r/network_acl_association.md
+      - network_acl_rule: r/network_acl_rule.md
+      - network_interface: r/network_interface.md
+      - network_interface_attachment: r/network_interface_attachment.md
+      - network_interface_sg_attachment: r/network_interface_sg_attachment.md
+      - route: r/route.md
+      - route_table: r/route_table.md
+      - route_table_association: r/route_table_association.md
+      - security_group: r/security_group.md
+      - security_group_rule: r/security_group_rule.md
+      - subnet: r/subnet.md
+      - vpc: r/vpc.md
+      - vpc_dhcp_options: r/vpc_dhcp_options.md
+      - vpc_dhcp_options_association: r/vpc_dhcp_options_association.md
+  - VPN (Site-to-Site):
+    - DataSources:
+      - customer_gateway: d/customer_gateway.md
+      - vpn_gateway: d/vpn_gateway.md
+    - Resources:
+      - customer_gateway: r/customer_gateway.md
+      - vpn_gateway_route_propagation: r/vpn_gateway_route_propagation.md
+             
+             
+theme:
+  name: material
+  logo: images/favicon.ico
+  favicon: images/favicon.ico
+  palette:
+    scheme: hashicorp
+    primary: gray
+    accent: blue
+  icon:
+    repo: fontawesome/brands/github
+    admonition:
+      note: octicons/tag-16
+      info: octicons/info-16
+      tip: octicons/squirrel-16
+      warning: octicons/alert-16
+
+  
+  font: false
+  features:
+    - navigation.instant
+    - content.tabs.link
+    - content.code.copy
+
+plugins:
+  - search:
+      lang:
+        - en
+
+markdown_extensions:
+  - admonition
+  - footnotes
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.inlinehilite
+  - toc:
+      permalink: "#"
+
+extra_css:
+     - 'assets/stylesheets/extra.css'
+     - "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+extra_javascript:
+     - 'assets/stylesheets/extra.js'

@@ -19,31 +19,31 @@ description: |-
 
 Provides a S3 bucket resource.
 
-~> **NOTE on S3 Bucket canned ACL Configuration:** S3 Bucket canned ACL can be configured in either the standalone resource [`aws_s3_bucket_acl`](s3_bucket_acl.html.markdown)
+~> **NOTE on S3 Bucket canned ACL Configuration:** S3 Bucket canned ACL can be configured in either the standalone resource [`aws_s3_bucket_acl`](s3_bucket_acl.md)
 or with the deprecated parameter `acl` in the resource `aws_s3_bucket`.
 Configuring with both will cause inconsistencies and may overwrite configuration.
 
-~> **NOTE on S3 Bucket ACL Grants Configuration:** S3 Bucket grants can be configured in either the standalone resource [`aws_s3_bucket_acl`](s3_bucket_acl.html.markdown)
+~> **NOTE on S3 Bucket ACL Grants Configuration:** S3 Bucket grants can be configured in either the standalone resource [`aws_s3_bucket_acl`](s3_bucket_acl.md)
 or with the deprecated parameter `grant` in the resource `aws_s3_bucket`.
 Configuring with both will cause inconsistencies and may overwrite configuration.
 
-~> **NOTE on S3 Bucket CORS Configuration:** S3 Bucket CORS can be configured in either the standalone resource [`aws_s3_bucket_cors_configuration`](s3_bucket_cors_configuration.html.markdown)
+~> **NOTE on S3 Bucket CORS Configuration:** S3 Bucket CORS can be configured in either the standalone resource [`aws_s3_bucket_cors_configuration`](s3_bucket_cors_configuration.md)
 or with the deprecated parameter `cors_rule` in the resource `aws_s3_bucket`.
 Configuring with both will cause inconsistencies and may overwrite configuration.
 
-~> **NOTE on S3 Bucket Lifecycle Configuration:** S3 Bucket Lifecycle can be configured in either the standalone resource [`aws_s3_bucket_lifecycle_configuration`](s3_bucket_lifecycle_configuration.html.markdown)
+~> **NOTE on S3 Bucket Lifecycle Configuration:** S3 Bucket Lifecycle can be configured in either the standalone resource [`aws_s3_bucket_lifecycle_configuration`](s3_bucket_lifecycle_configuration.md)
 or with the deprecated parameter `lifecycle_rule` in the resource `aws_s3_bucket`.
 Configuring with both will cause inconsistencies and may overwrite configuration.
 
-~> **NOTE on S3 Bucket Policy Configuration:** S3 Bucket Policy can be configured in either the standalone resource [`aws_s3_bucket_policy`](s3_bucket_policy.html.markdown)
+~> **NOTE on S3 Bucket Policy Configuration:** S3 Bucket Policy can be configured in either the standalone resource [`aws_s3_bucket_policy`](s3_bucket_policy.md)
 or with the deprecated parameter `policy` in the resource `aws_s3_bucket`.
 Configuring with both will cause inconsistencies and may overwrite configuration.
 
-~> **NOTE on S3 Bucket Versioning Configuration:** S3 Bucket versioning can be configured in either the standalone resource [`aws_s3_bucket_versioning`](s3_bucket_versioning.html.markdown)
+~> **NOTE on S3 Bucket Versioning Configuration:** S3 Bucket versioning can be configured in either the standalone resource [`aws_s3_bucket_versioning`](s3_bucket_versioning.md)
 or with the deprecated parameter `versioning` in the resource `aws_s3_bucket`.
 Configuring with both will cause inconsistencies and may overwrite configuration.
 
-~> **NOTE on S3 Bucket Website Configuration:** S3 Bucket Website can be configured in either the standalone resource [`aws_s3_bucket_website_configuration`](s3_bucket_website_configuration.html.markdown)
+~> **NOTE on S3 Bucket Website Configuration:** S3 Bucket Website can be configured in either the standalone resource [`aws_s3_bucket_website_configuration`](s3_bucket_website_configuration.md)
 or with the deprecated parameter `website` in the resource `aws_s3_bucket`.
 Configuring with both will cause inconsistencies and may overwrite configuration.
 
@@ -74,7 +74,7 @@ resource "aws_s3_bucket_acl" "example" {
 ### Static Website Hosting
 
 -> **NOTE:** The parameter `website` is deprecated.
-Use the resource [`aws_s3_bucket_website_configuration`](s3_bucket_website_configuration.html.markdown) instead.
+Use the resource [`aws_s3_bucket_website_configuration`](s3_bucket_website_configuration.md) instead.
 
 ```terraform
 resource "aws_s3_bucket" "example" {
@@ -106,7 +106,7 @@ EOF
 ### Using CORS
 
 -> **NOTE:** The parameter `cors_rule` is deprecated.
-Use the resource [`aws_s3_bucket_cors_configuration`](s3_bucket_cors_configuration.html.markdown) instead.
+Use the resource [`aws_s3_bucket_cors_configuration`](s3_bucket_cors_configuration.md) instead.
 
 ```terraform
 resource "aws_s3_bucket" "example" {
@@ -130,7 +130,7 @@ resource "aws_s3_bucket" "example" {
 ### Using versioning
 
 -> **NOTE:** The parameter `versioning` is deprecated.
-Use the resource [`aws_s3_bucket_versioning`](s3_bucket_versioning.html.markdown) instead.
+Use the resource [`aws_s3_bucket_versioning`](s3_bucket_versioning.md) instead.
 
 ```terraform
 resource "aws_s3_bucket" "example" {
@@ -150,7 +150,7 @@ resource "aws_s3_bucket" "example" {
 ### Using object lifecycle
 
 -> **NOTE:** The parameter `lifecycle_rule` is deprecated.
-Use the resource [`aws_s3_bucket_lifecycle_configuration`](s3_bucket_lifecycle_configuration.html.markdown) instead.
+Use the resource [`aws_s3_bucket_lifecycle_configuration`](s3_bucket_lifecycle_configuration.md) instead.
 
 ```terraform
 resource "aws_s3_bucket" "bucket" {
@@ -214,7 +214,7 @@ resource "aws_s3_bucket" "versioning_bucket" {
 ### Using ACL policy grants
 
 -> **NOTE:** The parameters `acl` and `grant` are deprecated.
-Use the resource [`aws_s3_bucket_acl`](s3_bucket_acl.html.markdown) instead.
+Use the resource [`aws_s3_bucket_acl`](s3_bucket_acl.md) instead.
 
 ```terraform
 data "aws_canonical_user_id" "current_user" {}
@@ -246,18 +246,18 @@ The following arguments are supported:
 
 * `bucket` - (Optional, Forces new resource) The name of the bucket. If omitted, Terraform will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules may be found in [user documentation][bucket-naming].
 * `bucket_prefix` - (Optional, Conflicts with `bucket`, Forces new resource) Creates a unique bucket name beginning with the specified prefix. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules may be found in [user documentation][bucket-naming].
-* `acl` - (Optional, **Deprecated**, Conflicts with `grant`) The [canned ACL][canned-acl] to apply. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`. Defaults to `private`. Terraform will only perform drift detection if a configuration value is provided. Use the resource [`aws_s3_bucket_acl`](s3_bucket_acl.html.markdown) instead.
-* `grant` - (Optional, **Deprecated**, Conflicts with `acl`) An ACL policy grant. See [Grant](#grant) below for details. Terraform will only perform drift detection if a configuration value is provided. Use the resource [`aws_s3_bucket_acl`](s3_bucket_acl.html.markdown) instead.
-* `cors_rule` - (Optional, **Deprecated**) A rule of [Cross-Origin Resource Sharing][cors]. See [CORS rule](#cors-rule) below for details. Terraform will only perform drift detection if a configuration value is provided. Use the resource [`aws_s3_bucket_cors_configuration`](s3_bucket_cors_configuration.html.markdown) instead.
+* `acl` - (Optional, **Deprecated**, Conflicts with `grant`) The [canned ACL][canned-acl] to apply. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`. Defaults to `private`. Terraform will only perform drift detection if a configuration value is provided. Use the resource [`aws_s3_bucket_acl`](s3_bucket_acl.md) instead.
+* `grant` - (Optional, **Deprecated**, Conflicts with `acl`) An ACL policy grant. See [Grant](#grant) below for details. Terraform will only perform drift detection if a configuration value is provided. Use the resource [`aws_s3_bucket_acl`](s3_bucket_acl.md) instead.
+* `cors_rule` - (Optional, **Deprecated**) A rule of [Cross-Origin Resource Sharing][cors]. See [CORS rule](#cors-rule) below for details. Terraform will only perform drift detection if a configuration value is provided. Use the resource [`aws_s3_bucket_cors_configuration`](s3_bucket_cors_configuration.md) instead.
 * `force_destroy` - (Optional) A boolean that indicates all objects should be deleted from the bucket so that the bucket can be destroyed without error. Defaults to `false`.
 * `lifecycle_rule` - (Optional, **Deprecated**) A configuration of [object lifecycle management][lifecycle-management]. See [Lifecycle Rule](#lifecycle-rule) below for details. Terraform will only perform drift detection if a configuration value is provided.
-  Use the resource [`aws_s3_bucket_lifecycle_configuration`](s3_bucket_lifecycle_configuration.html.markdown) instead.
+  Use the resource [`aws_s3_bucket_lifecycle_configuration`](s3_bucket_lifecycle_configuration.md) instead.
 * `policy` - (Optional, **Deprecated**) A valid bucket policy JSON document. Note that if the policy document is not specific enough (but still valid), Terraform may view the policy as constantly changing in a `terraform plan`. In this case, please make sure you use the verbose/specific version of the policy.
   Terraform will only perform drift detection if a configuration value is provided.
-  Use the resource [`aws_s3_bucket_policy`](s3_bucket_policy.html.markdown) instead.
-* `versioning` - (Optional, **Deprecated**) A configuration of the [S3 bucket versioning state][s3-versioning]. See [Versioning](#versioning) below for details. Terraform will only perform drift detection if a configuration value is provided. Use the resource [`aws_s3_bucket_versioning`](s3_bucket_versioning.html.markdown) instead.
+  Use the resource [`aws_s3_bucket_policy`](s3_bucket_policy.md) instead.
+* `versioning` - (Optional, **Deprecated**) A configuration of the [S3 bucket versioning state][s3-versioning]. See [Versioning](#versioning) below for details. Terraform will only perform drift detection if a configuration value is provided. Use the resource [`aws_s3_bucket_versioning`](s3_bucket_versioning.md) instead.
 * `website` - (Optional, **Deprecated**) A configuration of the [S3 bucket website][hosting-website]. See [Website](#website) below for details. Terraform will only perform drift detection if a configuration value is provided.
-  Use the resource [`aws_s3_bucket_website_configuration`](s3_bucket_website_configuration.html.markdown) instead.
+  Use the resource [`aws_s3_bucket_website_configuration`](s3_bucket_website_configuration.md) instead.
 * `tags` - (Optional) A map of tags to assign to the bucket. If configured with a provider [`default_tags` configuration block][default-tags] present, tags with matching keys will overwrite those defined at the provider-level.
 
 ### CORS Rule
