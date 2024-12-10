@@ -156,7 +156,7 @@ func (c *Config) Client(ctx context.Context) (interface{}, diag.Diagnostics) {
 			}
 			projectName := accessKeyParts[0]
 			userLogin := accessKeyParts[1]
-			
+
 			if projectName == "" || userLogin == "" {
 				return nil, diag.Errorf(errMsg, c.AccessKey)
 			}
